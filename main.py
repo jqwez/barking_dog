@@ -1,31 +1,16 @@
-import tkinter as tk
-import os
-
 import sys, pygame
 
 from characters.Dog import Dog
 from components.TitleBar import TitleBar
 
+pygame.init()
+
 size = width, height = 1080, 720
-
-# tkinter wrapper
-
-root = tk.Tk()
-embed = tk.Frame(root, width=width, height=height)
-embed.pack()
-
-os.environ['SDL_WINDOWID'] = str(embed.winfo_id())
-os.environ['SDL_VIDEODRIVER'] = 'windib' 
-
-
-pygame.display.init()
-
 black = 15, 100, 15
 
 speed = 8
 
-screen = pygame.display.set_mode(size)
-screen_full_size = pygame.display.list_modes()[0]
+screen = pygame.display.set_mode(size, pygame.NOFRAME)
 pygame.display.set_caption("Ultimate Barking Dog")
 
 clock = pygame.time.Clock()
@@ -69,9 +54,3 @@ while True:
     
     title_bar.drawTitle()
     pygame.display.flip()
-    root.update()
-
-
-
-pygame.quit()
-root.destroy()
