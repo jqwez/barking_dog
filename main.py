@@ -1,6 +1,7 @@
 import sys, pygame
 
 from characters.Dog import Dog
+from components.TitleBar import TitleBar
 
 pygame.init()
 
@@ -9,12 +10,12 @@ black = 15, 100, 15
 
 speed = 8
 
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode(size, pygame.NOFRAME)
 pygame.display.set_caption("Ultimate Barking Dog")
 
 clock = pygame.time.Clock()
 
-
+title_bar = TitleBar(screen)
 dog = Dog()
 pygame.display.set_icon(dog.states[0])
 
@@ -39,13 +40,17 @@ while True:
             dog.set_down()
             dog.rect = dog.rect.move([0,speed])
     if keys[pygame.K_w]:
-        if dog.rect.top >= 0:
+        if dog.rect.top >= title_bar.height:
             dog.set_idle()
             dog.rect = dog.rect.move([0,-speed])
 
     print(clock.get_fps())
+
     
 
     screen.fill(black)
     screen.blit(dog.image, dog.rect)
+    
+    
+    title_bar.drawTitle()
     pygame.display.flip()
