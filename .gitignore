@@ -1,2 +1,6 @@
 venv
 *.xcf
+build
+dist
+*.spec
+*.pyc

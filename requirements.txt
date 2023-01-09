@@ -1,1 +1,10 @@
 pygame==2.1.2
+altgraph==0.17.3
+cachetools==5.2.1
+future==0.18.2
+pefile==2022.5.30
+pygame==2.1.2
+pyinstaller==5.7.0
+pyinstaller-hooks-contrib==2022.14
+pywin32-ctypes==0.2.0
+UNKNOWN==0.0.0
